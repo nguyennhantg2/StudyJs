@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<body>
+    <span id="hj"></span>
+    <button onclick="setCookie()">halo</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        console.log(navigator.languages);
+        const obj = {
+            vi: "Xin chào",
+            en: "hello"
+        }
+        //https://geolocation-db.com/json/
+        const BASE_URL = 'https://ipinfo.io';
+        const getData = async () => {
+            await axios.get(BASE_URL)
+                .then(res => {
+                    console.log(res.data.country);
+                    if (res.data.country_code == "VN") {
+                        document.querySelector("#hj").innerHTML = obj.vi;
+                    } else {
+                        document.querySelector("#hj").innerHTML = obj.en;
+                    }
+                })
+                .catch(err => {console.log(err);})
+            // console.log(res);
+            // if (res.data.country_code == "VN") {
+            //     document.querySelector("#hj").innerHTML = obj.vi;
+            // } else {
+            //     document.querySelector("#hj").innerHTML = obj.en;
+            // }
+        }
+        getData();
+    </script>
+</body>
+
+</html>

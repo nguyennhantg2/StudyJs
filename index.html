@@ -8,8 +8,23 @@
     <title>Document</title>
 
 <body>
+
+
+
+    <textarea id="txt-code"></textarea>
+    <br/>
+    <textarea id="txt-result"></textarea>
+    <br/>
+    <input type="button" value="run code" id="btn-execute"/>
+
+    <script>
+        document.getElementById('btn-execute').addEventListener('click', function(){
+            document.getElementById('txt-result').value.append(eval(document.getElementById('txt-code').value))
+        })
+    </script>
+
+    <br/>
     <span id="hj"></span>
-    <button onclick="setCookie()">halo</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
